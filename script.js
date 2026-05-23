@@ -1,7 +1,7 @@
 
 function changeBook(num){
     const images = [
-        "hp_1.jpeg",
+        "hp1.jpg",
         "hp2.jpg",
         "hp3.jpg",
         "hp4.jpg",
