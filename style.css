@@ -193,7 +193,7 @@ header p{
     box-shadow:0 0 20px rgba(0,0,0,0.5);
 }
 
-.anime-card:hover{
+.book-card:hover{
     transform:translateY(-10px) scale(1.03);
 }
 
