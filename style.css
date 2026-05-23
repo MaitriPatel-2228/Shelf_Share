@@ -172,9 +172,9 @@ header p{
 .floating-menu:hover .dropdown-content{
     display:flex;
 }
-/* Anime Cards */
+/* Book Cards */
 
-.anime-container{
+.book-container{
     display:flex;
     flex-wrap:wrap;
     justify-content:center;
@@ -182,7 +182,7 @@ header p{
     padding:30px;
 }
 
-.anime-card{
+.book-card{
     width:320px;
     background:rgba(255,255,255,0.08);
     border:1px solid rgba(255,255,255,0.1);
@@ -197,7 +197,7 @@ header p{
     transform:translateY(-10px) scale(1.03);
 }
 
-.anime-card img{
+.book-card img{
     display: block;
     margin: 0 auto;
     width:80%;
@@ -206,7 +206,7 @@ header p{
     border-radius: 12px;
 }
 
-.anime-card h2{
+.book-card h2{
     text-align:center;
     padding:2px 15px;
     color:#ffcc00;
