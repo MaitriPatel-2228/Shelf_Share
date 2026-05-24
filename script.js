@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+import { getDatabase, ref, push , onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 window.changeBook = function(num){
     const images = [
         "hp1.jpg",
@@ -58,6 +58,50 @@ form.addEventListener("submit", async function(e) {
   alert("Book Added Successfully!");
 
   form.reset();
+
+});
+import { onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
+const bookContainer = document.getElementById("bookContainer");
+
+// Read books from Firebase
+onValue(ref(db, "books"), (snapshot) => {
+
+    const data = snapshot.val();
+
+    // Prevent duplicate cards
+    bookContainer.innerHTML = "";
+
+    // Loop through books
+    for(let id in data){
+
+        const book = data[id];
+
+        const card = document.createElement("div");
+
+        card.classList.add("book-card");
+
+        card.innerHTML = `
+            <h2>${book.name}</h2>
+
+            <img src="${book.image}" alt="${book.name}">
+
+            <div class="info">
+
+                <h3>Author</h3>
+                <p>${book.author}</p>
+
+                <h3>Description</h3>
+                <p>${book.description}</p>
+
+                <h3>Experience</h3>
+                <p>${book.experience}</p>
+
+            </div>
+        `;
+
+        bookContainer.appendChild(card);
+    }
 
 });
 
