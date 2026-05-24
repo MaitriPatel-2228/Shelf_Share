@@ -10,7 +10,7 @@ function changeBook(num){
         "hp7.jpg"
     ];
 
-    document.getElementById("bookImage").src = images[num - 1];
+    document.getElementById("harryImage").src = images[num - 1];
 }
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
