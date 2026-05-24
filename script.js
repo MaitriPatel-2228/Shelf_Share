@@ -11,6 +11,7 @@ function changeBook(num){
     ];
 
     document.getElementById("bookImage").src = images[num - 1];
+}
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
@@ -59,4 +60,4 @@ form.addEventListener("submit", async function(e) {
   form.reset();
 
 });
-}
+
