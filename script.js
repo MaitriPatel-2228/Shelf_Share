@@ -1,5 +1,5 @@
 
-function changeBook(num){
+window.changeBook = function(num){
     const images = [
         "hp1.jpg",
         "hp2.jpg",
