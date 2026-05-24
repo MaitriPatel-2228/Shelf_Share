@@ -17,13 +17,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/fireba
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DATABASE_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
+  authDomain: "share-shelf-9409e.firebaseapp.com",
+  databaseURL: "https://share-shelf-9409e-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "share-shelf-9409e",
+  storageBucket: "share-shelf-9409e.firebasestorage.app",
+  messagingSenderId: "22317070456",
+  appId: "1:22317070456:web:03e1253fdf4a64a4c7558d"
 };
 
 // Initialize Firebase
