@@ -1,20 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
-// ─── Harry Potter Image Switcher ───────────────────────────────────────────
-window.changeBook = function(num) {
-    const images = [
-        "hp1.jpg",
-        "hp2.jpg",
-        "hp3.jpg",
-        "hp4.jpg",
-        "hp5.jpg",
-        "hp6.jpg",
-        "hp7.jpg"
-    ];
-    document.getElementById("harryImage").src = images[num - 1];
-};
-
 // ─── Firebase Setup ─────────────────────────────────────────────────────────
 const firebaseConfig = {
     apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
