@@ -19,10 +19,7 @@ body{
     width:100%;
     height:100%;
     background:
-        linear-gradient(
-            rgba(10,10,25,0.55),
-            rgba(117, 117, 187, 0.65)
-        ),
+        linear-gradient(rgba(10,10,25,0.55), rgba(117,117,187,0.65)),
         url("bg.jpg");
     background-size:cover;
     background-position:center;
@@ -36,7 +33,7 @@ body{
     position:absolute;
     inset:0;
     background:radial-gradient(circle at center, transparent 20%);
-    backdrop-filter: blur(1px);
+    backdrop-filter:blur(1px);
     animation:glowMove 8s infinite alternate;
 }
 
@@ -68,14 +65,15 @@ header p{
     font-size:1.2rem;
 }
 
-.navbar {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
+.navbar{
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
 }
 
+/* Floating Menu */
 .floating-menu{
     position:fixed;
     top:20px;
@@ -84,8 +82,8 @@ header p{
 }
 
 .drop-btn{
-    background: rgba(255, 107, 129, 0.35);
-    backdrop-filter: blur(6px);
+    background:rgba(255,107,129,0.35);
+    backdrop-filter:blur(6px);
     color:white;
     padding:12px 18px;
     border:none;
@@ -131,7 +129,7 @@ header p{
     display:flex;
 }
 
-/* ── Book Cards ── */
+/* Book Cards */
 .book-container{
     display:flex;
     flex-wrap:wrap;
@@ -149,7 +147,7 @@ header p{
     backdrop-filter:blur(10px);
     transition:0.4s;
     box-shadow:0 0 20px rgba(0,0,0,0.5);
-    position: relative;
+    position:relative;
 }
 
 .book-card:hover{
@@ -157,12 +155,12 @@ header p{
 }
 
 .book-card img{
-    display: block;
-    margin: 0 auto;
+    display:block;
+    margin:0 auto;
     width:80%;
     height:220px;
     object-fit:cover;
-    border-radius: 12px;
+    border-radius:12px;
 }
 
 .book-card h2{
@@ -197,15 +195,15 @@ header p{
     cursor:pointer;
     background:#a2d1d7;
     color:black;
-    font-size: 0.85rem;
-    font-weight: normal;
-    transition: 0.2s;
+    font-size:0.85rem;
+    font-weight:normal;
+    transition:0.2s;
 }
 
 .buttons button:hover{
     background:#ff4757;
-    color: white;
-    transform: none;
+    color:white;
+    transform:none;
 }
 
 .info{
@@ -213,11 +211,11 @@ header p{
 }
 
 .info h3{
+    display:block;
     margin-bottom:8px;
     color:#00e5ff;
-    display: block;       /* override the global h3 flex rule */
-    justify-content: unset;
-    font-size: 0.95rem;
+    font-size:0.95rem;
+    font-weight:600;
 }
 
 .info p{
@@ -226,185 +224,148 @@ header p{
     color:#ddd;
 }
 
-/* ── Delete Button (Firebase cards only) ── */
-.delete-btn {
-    display: block;
-    width: fit-content;
-    margin: 8px auto 14px auto;
-    padding: 8px 20px;
-    background: transparent !important;
-    color: #e05555 !important;
-    border: 1.5px solid #e05555 !important;
-    border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: normal;
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+/* Delete Button */
+.delete-btn{
+    display:inline-block;
+    width:auto;
+    margin:8px auto 14px;
+    padding:8px 20px;
+    background:transparent;
+    color:#e05555;
+    border:1.5px solid #e05555;
+    border-radius:8px;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    font-weight:normal;
+    cursor:pointer;
+    transition:background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.delete-btn:hover {
-    background: #e05555 !important;
-    color: #fff !important;
-    transform: scale(1.04) !important;
+.delete-btn:hover{
+    background:#e05555;
+    color:#fff;
+    transform:scale(1.04);
 }
 
-.delete-btn:active {
-    transform: scale(0.97) !important;
+.delete-btn:active{
+    transform:scale(0.97);
 }
 
-/* ── Form ── */
-.form-section {
-    width: 90%;
-    max-width: 700px;
-    margin: 50px auto;
-    background: rgba(255, 255, 255, 0.08);
-    padding: 30px;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+/* Form Section */
+.form-section{
+    width:90%;
+    max-width:700px;
+    margin:50px auto;
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
 }
 
-.form-section h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #ffcc00;
+.form-section h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#ffcc00;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
-h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    color: white;
-    font-size: 1rem;
-    margin: 0;
+/* Form row — label + input stacked vertically always */
+.form-row{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 }
 
-h3 input {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 1rem;
+.form-row label{
+    color:white;
+    font-size:1rem;
+    font-weight:600;
 }
 
-textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    resize: none;
-    font-size: 1rem;
+.form-row input{
+    width:100%;
+    box-sizing:border-box;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    font-size:1rem;
+    font-family:'Poppins',sans-serif;
 }
 
-/* Global button — form submit & HP buttons inherit this */
-button {
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    background: #a2d1d7;
-    color: black;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: bold;
+.form-row input[type="file"]{
+    padding:8px 12px;
+    border:1.5px dashed rgba(255,255,255,0.3);
+    background:rgba(0,0,0,0.4);
+    color:#ccc;
+    font-size:0.85rem;
+    cursor:pointer;
 }
 
-button:hover {
-    background: #ff4757;
-    color: white;
-    transform: translateY(-2px);
+.form-row input[type="file"]::-webkit-file-upload-button{
+    background:#a2d1d7;
+    color:black;
+    border:none;
+    border-radius:6px;
+    padding:6px 12px;
+    font-size:0.85rem;
+    cursor:pointer;
+    margin-right:10px;
+    transition:0.2s;
 }
 
-
-
-/* ── File Upload Input ── */
-h3 input[type="file"] {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1.5px dashed rgba(255,255,255,0.3);
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.4);
-    color: #ccc;
-    font-size: 0.85rem;
-    cursor: pointer;
+.form-row input[type="file"]::-webkit-file-upload-button:hover{
+    background:#ff4757;
+    color:white;
 }
 
-h3 input[type="file"]::-webkit-file-upload-button {
-    background: #a2d1d7;
-    color: black;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: 0.2s;
+textarea{
+    width:100%;
+    box-sizing:border-box;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    resize:none;
+    font-size:1rem;
+    font-family:'Poppins',sans-serif;
 }
 
-h3 input[type="file"]::-webkit-file-upload-button:hover {
-    background: #ff4757;
-    color: white;
+button{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#a2d1d7;
+    color:black;
+    font-size:1rem;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
 }
 
-/* ── Mobile Responsive ── */
-@media(max-width: 768px){
-    header h1{
-        font-size: 2.2rem;
-    }
+button:hover{
+    background:#ff4757;
+    color:white;
+    transform:translateY(-2px);
+}
 
-    header p{
-        font-size: 1rem;
-    }
-
-    .book-card{
-        width: 90%;
-    }
-
+/* Mobile */
+@media(max-width:768px){
+    header h1{ font-size:2.2rem; }
+    header p{ font-size:1rem; }
+    .book-card{ width:90%; }
     .form-section{
-        width: 92%;
-        padding: 20px 16px;
-    }
-
-    /* Stack label above input instead of side by side */
-    .form-section h3 {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        font-size: 0.95rem;
-    }
-
-    .form-section h3 input {
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 0.95rem;
-    }
-
-    .form-section h3 input[type="file"] {
-        width: 100%;
-        font-size: 0.8rem;
-    }
-
-    textarea {
-        font-size: 0.95rem;
-    }
-
-    .form-section button[type="submit"] {
-        font-size: 0.95rem;
-        padding: 12px;
+        width:92%;
+        padding:20px 16px;
     }
 }
