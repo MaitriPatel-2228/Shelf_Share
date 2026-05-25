@@ -105,6 +105,23 @@
         </form>
     </section>
 
+    
+    <script>
+        function changeBook(num) {
+            const images = [
+                "hp1.jpg",
+                "hp2.jpg",
+                "hp3.jpg",
+                "hp4.jpg",
+                "hp5.jpg",
+                "hp6.jpg",
+                "hp7.jpg"
+            ];
+            const img = document.getElementById("harryImage");
+            img.src = images[num - 1];
+        }
+    </script>
+
     <script src="script.js" type="module"></script>
 </body>
 </html>
