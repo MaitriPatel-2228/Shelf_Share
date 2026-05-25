@@ -330,11 +330,7 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Responsive */
-@media(max-width:768px){
-    header h1{ font-size:2.5rem; }
-    .book-card{ width:90%; }
-}
+
 
 /* ── File Upload Input ── */
 h3 input[type="file"] {
@@ -363,4 +359,52 @@ h3 input[type="file"]::-webkit-file-upload-button {
 h3 input[type="file"]::-webkit-file-upload-button:hover {
     background: #ff4757;
     color: white;
+}
+
+/* ── Mobile Responsive ── */
+@media(max-width: 768px){
+    header h1{
+        font-size: 2.2rem;
+    }
+
+    header p{
+        font-size: 1rem;
+    }
+
+    .book-card{
+        width: 90%;
+    }
+
+    .form-section{
+        width: 92%;
+        padding: 20px 16px;
+    }
+
+    /* Stack label above input instead of side by side */
+    .form-section h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 0.95rem;
+    }
+
+    .form-section h3 input {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 0.95rem;
+    }
+
+    .form-section h3 input[type="file"] {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    textarea {
+        font-size: 0.95rem;
+    }
+
+    .form-section button[type="submit"] {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
 }
