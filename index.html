@@ -40,11 +40,9 @@
                 <h3>Author</h3>
                 <p>James Clear</p>
                 <h3>Description</h3>
-                <p>A powerful self-improvement book that explains how tiny daily habits can create massive long-term success.</p>
+                <p>Atomic Habits reveals how tiny 1% daily improvements compound into remarkable results. James Clear teaches you to build systems using habit stacking and identity-based thinking — making good habits inevitable and bad ones impossible.</p>
                 <h3>Experience</h3>
-                <p>Crisp, practical, and backed by real science.
-                This book gives you an exact blueprint to build good habits and break bad ones.
-                    A must-read for anyone who wants to grow — one small step at a time.</p>
+                <p>Crisp, practical, and backed by real science. This book gives you an exact blueprint to build good habits and break bad ones. A must-read for anyone who wants to grow — one small step at a time.</p>
             </div>
         </div>
 
@@ -73,23 +71,28 @@
             </div>
         </div>
 
-        <!-- Firebase-suggested books appended here by script.js -->
-
     </section>
 
     <!-- Add Book Form -->
     <section class="form-section" id="suggestion">
         <h2>Add New Book Suggestion</h2>
         <form id="bookForm">
-            <h3>Book Name :
+
+            <div class="form-row">
+                <label for="bookName">Book Name</label>
                 <input type="text" id="bookName" placeholder="Enter Book Name" required>
-            </h3>
-            <h3>Author :
+            </div>
+
+            <div class="form-row">
+                <label for="bookAuthor">Author</label>
                 <input type="text" id="bookAuthor" placeholder="Author name" required>
-            </h3>
-            <h3>Book Image :
+            </div>
+
+            <div class="form-row">
+                <label for="bookImage">Book Image</label>
                 <input type="file" id="bookImage" accept="image/*" required>
-            </h3>
+            </div>
+
             <textarea id="bookDescription" placeholder="Add Book Description" required></textarea>
             <textarea id="bookExperience" placeholder="Add Your Experience" required></textarea>
             <button type="submit">Add Book</button>
