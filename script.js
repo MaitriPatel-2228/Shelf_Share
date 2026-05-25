@@ -1,9 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+import {
+    getDatabase,
+    ref,
+    push,
+    onValue
+} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
 
-// -------------------- HARRY POTTER SLIDER --------------------
+// ---------------- HARRY POTTER SLIDER ----------------
 
 window.changeBook = function(num){
 
@@ -21,31 +26,38 @@ window.changeBook = function(num){
 };
 
 
-// -------------------- FIREBASE CONFIG --------------------
+// ---------------- FIREBASE CONFIG ----------------
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
-  authDomain: "share-shelf-9409e.firebaseapp.com",
-  databaseURL: "https://share-shelf-9409e-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "share-shelf-9409e",
-  storageBucket: "share-shelf-9409e.firebasestorage.app",
-  messagingSenderId: "22317070456",
-  appId: "1:22317070456:web:03e1253fdf4a64a4c7558d"
+
+    apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
+
+    authDomain: "share-shelf-9409e.firebaseapp.com",
+
+    databaseURL: "https://share-shelf-9409e-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+    projectId: "share-shelf-9409e",
+
+    storageBucket: "share-shelf-9409e.firebasestorage.app",
+
+    messagingSenderId: "22317070456",
+
+    appId: "1:22317070456:web:03e1253fdf4a64a4c7558d"
 };
 
 
-// -------------------- INITIALIZE FIREBASE --------------------
+// ---------------- INITIALIZE FIREBASE ----------------
 
 const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
 
-// -------------------- FORM SUBMIT --------------------
+// ---------------- FORM SUBMIT ----------------
 
 const form = document.getElementById("bookForm");
 
-form.addEventListener("submit", async function(e) {
+form.addEventListener("submit", async function(e){
 
     e.preventDefault();
 
@@ -72,9 +84,9 @@ form.addEventListener("submit", async function(e) {
 });
 
 
-// -------------------- DISPLAY FIREBASE BOOKS --------------------
+// ---------------- DISPLAY FIREBASE BOOKS ----------------
 
-const bookContainer = document.getElementById("bookContainer");
+const firebaseBooks = document.getElementById("firebaseBooks");
 
 onValue(ref(db, "books"), (snapshot) => {
 
@@ -82,12 +94,8 @@ onValue(ref(db, "books"), (snapshot) => {
 
     if(!data) return;
 
-    // Remove only previously generated Firebase cards
-    const oldCards = document.querySelectorAll(".firebase-card");
+    firebaseBooks.innerHTML = "";
 
-    oldCards.forEach(card => card.remove());
-
-    // Create cards
     for(let id in data){
 
         const book = data[id];
@@ -95,9 +103,9 @@ onValue(ref(db, "books"), (snapshot) => {
         const card = document.createElement("div");
 
         card.classList.add("book-card");
-        card.classList.add("firebase-card");
 
         card.innerHTML = `
+
             <h2>${book.name}</h2>
 
             <img src="${book.image}" alt="${book.name}">
@@ -116,7 +124,7 @@ onValue(ref(db, "books"), (snapshot) => {
             </div>
         `;
 
-        bookContainer.appendChild(card);
+        firebaseBooks.appendChild(card);
     }
 
 });
