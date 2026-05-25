@@ -335,3 +335,32 @@ button:hover {
     header h1{ font-size:2.5rem; }
     .book-card{ width:90%; }
 }
+
+/* ── File Upload Input ── */
+h3 input[type="file"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1.5px dashed rgba(255,255,255,0.3);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ccc;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+h3 input[type="file"]::-webkit-file-upload-button {
+    background: #a2d1d7;
+    color: black;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: 0.2s;
+}
+
+h3 input[type="file"]::-webkit-file-upload-button:hover {
+    background: #ff4757;
+    color: white;
+}
