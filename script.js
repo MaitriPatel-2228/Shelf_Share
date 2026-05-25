@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
 // ─── Firebase Setup ─────────────────────────────────────────────────────────
 const firebaseConfig = {
@@ -14,6 +14,27 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+// ─── Helper: animate card out, then remove from DOM ─────────────────────────
+function removeCard(card) {
+    card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    card.style.opacity = "0";
+    card.style.transform = "scale(0.95)";
+    setTimeout(() => card.remove(), 400);
+}
+
+// ─── Add delete button to the two static cards ──────────────────────────────
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".book-card").forEach(card => {
+        const btn = document.createElement("button");
+        btn.className = "delete-btn";
+        btn.textContent = "🗑 Delete";
+        btn.addEventListener("click", () => {
+            if (confirm("Remove this book card?")) removeCard(card);
+        });
+        card.appendChild(btn);
+    });
+});
 
 // ─── Form Submission ─────────────────────────────────────────────────────────
 const form = document.getElementById("bookForm");
@@ -36,23 +57,20 @@ form.addEventListener("submit", async function(e) {
 
 // ─── Read & Render Books from Firebase ──────────────────────────────────────
 const bookContainer = document.getElementById("bookContainer");
-
-// We track which Firebase book IDs have already been rendered
-// so we NEVER wipe the static cards (Atomic Habits, Harry Potter)
 const renderedIds = new Set();
 
 onValue(ref(db, "books"), (snapshot) => {
     const data = snapshot.val();
-    if (!data) return; // no books yet — nothing to do
+    if (!data) return;
 
     for (let id in data) {
-        // Skip if this card was already added
         if (renderedIds.has(id)) continue;
 
         const book = data[id];
         const card = document.createElement("div");
         card.classList.add("book-card");
-        card.setAttribute("data-id", id); // useful for future features (e.g. delete)
+        card.setAttribute("data-id", id);
+
         card.innerHTML = `
             <h2>${book.name}</h2>
             <img src="${book.image}" alt="${book.name}">
@@ -65,7 +83,21 @@ onValue(ref(db, "books"), (snapshot) => {
                 <p>${book.experience}</p>
             </div>
         `;
+
+        // Delete button — removes from Firebase AND from the UI
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.textContent = "🗑 Delete";
+        deleteBtn.addEventListener("click", async () => {
+            if (confirm(`Delete "${book.name}"?`)) {
+                await remove(ref(db, `books/${id}`));  // remove from Firebase
+                renderedIds.delete(id);                 // allow re-render if re-added
+                removeCard(card);                       // animate out of UI
+            }
+        });
+
+        card.appendChild(deleteBtn);
         bookContainer.appendChild(card);
-        renderedIds.add(id); // mark as rendered
+        renderedIds.add(id);
     }
 });
