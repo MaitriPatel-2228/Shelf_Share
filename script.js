@@ -15,14 +15,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// ─── Convert uploaded image file to Base64 string ────────────────────────────
-function toBase64(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result); // result is "data:image/...;base64,..."
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-    });
+// ─── Cloudinary Config — FILL THESE IN ───────────────────────────────────────
+const CLOUDINARY_CLOUD_NAME = "dyqsjq9kl";       // e.g. "dxyz123abc"
+const CLOUDINARY_UPLOAD_PRESET = "bookshelf_preset"; // e.g. "bookshelf_preset"
+
+// ─── Upload image to Cloudinary, returns public image URL ────────────────────
+async function uploadToCloudinary(file) {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    const response = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+        { method: "POST", body: formData }
+    );
+
+    if (!response.ok) throw new Error("Cloudinary upload failed");
+    const data = await response.json();
+    return data.secure_url; // public image URL
 }
 
 // ─── Animate card out then remove from DOM ───────────────────────────────────
@@ -45,18 +55,19 @@ form.addEventListener("submit", async function(e) {
         return;
     }
 
-    // Show loading state
     const submitBtn = form.querySelector("button[type='submit']");
     submitBtn.textContent = "Uploading...";
     submitBtn.disabled = true;
 
     try {
-        const imageBase64 = await toBase64(imageFile);
+        // 1. Upload image to Cloudinary → get back a URL
+        const imageURL = await uploadToCloudinary(imageFile);
 
+        // 2. Save book data + image URL to Firebase
         const book = {
             name: document.getElementById("bookName").value,
             author: document.getElementById("bookAuthor").value,
-            image: imageBase64,   // store Base64 string directly
+            image: imageURL,
             description: document.getElementById("bookDescription").value,
             experience: document.getElementById("bookExperience").value
         };
@@ -64,9 +75,10 @@ form.addEventListener("submit", async function(e) {
         await push(ref(db, "books"), book);
         alert("Book Added Successfully!");
         form.reset();
+
     } catch (err) {
-        alert("Something went wrong. Please try again.");
         console.error(err);
+        alert("Upload failed: " + err.message);
     } finally {
         submitBtn.textContent = "Add Book";
         submitBtn.disabled = false;
@@ -102,7 +114,7 @@ onValue(ref(db, "books"), (snapshot) => {
             </div>
         `;
 
-        // Delete button — only on Firebase cards
+        // Delete button
         const deleteWrapper = document.createElement("div");
         deleteWrapper.style.cssText = "display:flex; justify-content:center; width:100%; padding:4px 0 12px;";
 
