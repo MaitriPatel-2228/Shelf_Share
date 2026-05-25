@@ -4,142 +4,107 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Share Shelf By Maitri Patel</title>
-
     <link rel="stylesheet" href="style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-   
 </head>
+<body id="top">
 
-
-    <body id="top">
-
-   <!-- Floating Dropdown Menu -->
-<div class="floating-menu">
-    <button class="drop-btn">☰ Menu</button>
-
-    <div class="dropdown-content">
-        <a href="#home">Home</a>
-        <a href="#suggestion">Suggest Book</a>
+    <!-- Floating Dropdown Menu -->
+    <div class="floating-menu">
+        <button class="drop-btn">☰ Menu</button>
+        <div class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#suggestion">Suggest Book</a>
+        </div>
     </div>
-</div>
+
     <!-- Animated Background -->
     <div class="background-animation"></div>
 
     <!-- Header -->
     <header id="home">
         <h1>📚 Share Shelf 🪶</h1>
-        <p>“Read & Recommend.”</p>
+        <p>"Read & Recommend."</p>
     </header>
 
-    <nav class="navbar">
+    <nav class="navbar"></nav>
 
-</nav>
-    <!-- Anime Cards -->
+    <!-- Book Cards Section -->
     <section class="book-container" id="bookContainer">
 
-        <!-- Atomic habits -->
+        <!-- Atomic Habits (static card) -->
         <div class="book-card">
             <h2>Atomic Habits</h2>
-
             <img src="atomic_habits.jpg" alt="Atomic Habits">
-
             <div class="info">
-               <h3>Author</h3>
-                <p>
-                    James Clear
-                </p>
+                <h3>Author</h3>
+                <p>James Clear</p>
                 <h3>Description</h3>
                 <p>
                     A powerful self-improvement book that explains how
-                    tiny daily habits can create massive long-term success. 
-                     
+                    tiny daily habits can create massive long-term success.
                 </p>
-
                 <h3>Experience</h3>
                 <p>
                     Easy to read, highly motivating, and full of real-life examples.
-    
                 </p>
-
-
-
             </div>
         </div>
 
-      
-     <!--Harry Potter-->
+        <!-- Harry Potter (static card with image switcher) -->
         <div class="book-card">
             <h2>Harry Potter</h2>
-
-    <div class="image-slider">
-    <img id="harryImage" src="hp1.jpg" alt="Harry Potter Book">
-
-    <div class="buttons">
-        <button onclick="changeBook(1)">1</button>
-        <button onclick="changeBook(2)">2</button>
-        <button onclick="changeBook(3)">3</button>
-        <button onclick="changeBook(4)">4</button>
-        <button onclick="changeBook(5)">5</button>
-        <button onclick="changeBook(6)">6</button>
-        <button onclick="changeBook(7)">7</button>
-    </div>
-</div>
-
+            <div class="image-slider">
+                <img id="harryImage" src="hp1.jpg" alt="Harry Potter Book">
+                <div class="buttons">
+                    <button onclick="changeBook(1)">1</button>
+                    <button onclick="changeBook(2)">2</button>
+                    <button onclick="changeBook(3)">3</button>
+                    <button onclick="changeBook(4)">4</button>
+                    <button onclick="changeBook(5)">5</button>
+                    <button onclick="changeBook(6)">6</button>
+                    <button onclick="changeBook(7)">7</button>
+                </div>
+            </div>
             <div class="info">
-               <h3>Author</h3>
-                <p>
-                   J. K. Rowling
-                </p>
+                <h3>Author</h3>
+                <p>J. K. Rowling</p>
                 <h3>Description</h3>
                 <p>
-                    Harry Potter, a young boy, discovers he is a wizard and joins Hogwarts, where he 
+                    Harry Potter, a young boy, discovers he is a wizard and joins Hogwarts, where he
                     learns magic and faces the dark wizard Voldemort as he uncovers secrets about his past.
-                     
                 </p>
-
                 <h3>Experience</h3>
                 <p>
-                    It consists of 7 parts.The story grows with every book, and the world of magic, 
+                    It consists of 7 parts. The story grows with every book, and the world of magic,
                     friendship, and courage feels unforgettable from beginning to end.
-    
                 </p>
-
-
-
             </div>
         </div>
+
+        <!-- Firebase-suggested books will be appended here dynamically -->
 
     </section>
 
     <!-- Add Book Form -->
-   <section class="form-section" id="suggestion">
-
+    <section class="form-section" id="suggestion">
         <h2>Add New Book Suggestion</h2>
-<form id="bookForm">
-
-  
-
-    <h3>Book Name : &nbsp;
-        <input type="text" id="bookName" placeholder="Enter Book Name" required>
-    </h3>
-     <h3>Author :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="text" id="bookAuthor" placeholder="Author name" required>
-    </h3>
-
-    <h3>Book Image :
-        <input type="text" id="bookImage" placeholder="Image URL" required>
-    </h3>
-
-    <textarea id="bookDescription" placeholder="Add Book Description" required></textarea>
-    <textarea id="bookExperience" placeholder="Add Your Experience" required></textarea>
-    <button type="submit">Add Book</button>
-
-</form>
+        <form id="bookForm">
+            <h3>Book Name : &nbsp;
+                <input type="text" id="bookName" placeholder="Enter Book Name" required>
+            </h3>
+            <h3>Author :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" id="bookAuthor" placeholder="Author name" required>
+            </h3>
+            <h3>Book Image :
+                <input type="text" id="bookImage" placeholder="Image URL" required>
+            </h3>
+            <textarea id="bookDescription" placeholder="Add Book Description" required></textarea>
+            <textarea id="bookExperience" placeholder="Add Your Experience" required></textarea>
+            <button type="submit">Add Book</button>
+        </form>
     </section>
 
     <script src="script.js" type="module"></script>
-
 </body>
 </html>
