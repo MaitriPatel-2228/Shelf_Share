@@ -255,6 +255,28 @@ header p{
     color:#ddd;
 }
 
+        /* ── Delete Button ── */
+        .book-card { position: relative; }
+        .delete-btn {
+            display: block;
+            margin: 8px auto 8px ;
+            padding: 8px 20px;
+            background: transparent;
+            color: #e05555;
+            border: 1.5px solid #e05555;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+        }
+        .delete-btn:hover {
+            background: #e05555;
+            color: #fff;
+            transform: scale(1.04);
+        }
+        .delete-btn:active { transform: scale(0.97); }
+   
 
 /* Form */
 
