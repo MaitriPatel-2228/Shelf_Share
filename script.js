@@ -60,7 +60,7 @@ form.addEventListener("submit", async function(e) {
   form.reset();
 
 });
-import { onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
+
 
 const bookContainer = document.getElementById("bookContainer");
 
@@ -69,8 +69,7 @@ onValue(ref(db, "books"), (snapshot) => {
 
     const data = snapshot.val();
 
-    // Prevent duplicate cards
-    bookContainer.innerHTML = "";
+    if(!data) return;
 
     // Loop through books
     for(let id in data){
