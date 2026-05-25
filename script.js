@@ -1,17 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 
-import {
-    getDatabase,
-    ref,
-    push,
-    onValue
-} from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
-
-
-// ---------------- HARRY POTTER SLIDER ----------------
-
+import { getDatabase, ref, push , onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 window.changeBook = function(num){
-
     const images = [
         "hp1.jpg",
         "hp2.jpg",
@@ -23,79 +13,66 @@ window.changeBook = function(num){
     ];
 
     document.getElementById("harryImage").src = images[num - 1];
-};
+}
 
 
-// ---------------- FIREBASE CONFIG ----------------
 
 const firebaseConfig = {
-
-    apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
-
-    authDomain: "share-shelf-9409e.firebaseapp.com",
-
-    databaseURL: "https://share-shelf-9409e-default-rtdb.asia-southeast1.firebasedatabase.app",
-
-    projectId: "share-shelf-9409e",
-
-    storageBucket: "share-shelf-9409e.firebasestorage.app",
-
-    messagingSenderId: "22317070456",
-
-    appId: "1:22317070456:web:03e1253fdf4a64a4c7558d"
+  apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
+  authDomain: "share-shelf-9409e.firebaseapp.com",
+  databaseURL: "https://share-shelf-9409e-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "share-shelf-9409e",
+  storageBucket: "share-shelf-9409e.firebasestorage.app",
+  messagingSenderId: "22317070456",
+  appId: "1:22317070456:web:03e1253fdf4a64a4c7558d"
 };
 
-
-// ---------------- INITIALIZE FIREBASE ----------------
-
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
-
-// ---------------- FORM SUBMIT ----------------
-
+// Form
 const form = document.getElementById("bookForm");
 
-form.addEventListener("submit", async function(e){
+form.addEventListener("submit", async function(e) {
 
-    e.preventDefault();
+  e.preventDefault();
 
-    const book = {
+  const book = {
 
-        name: document.getElementById("bookName").value,
+    name: document.getElementById("bookName").value,
 
-        author: document.getElementById("bookAuthor").value,
+    author: document.getElementById("bookAuthor").value,
 
-        image: document.getElementById("bookImage").value,
+    image: document.getElementById("bookImage").value,
 
-        description: document.getElementById("bookDescription").value,
+    description: document.getElementById("bookDescription").value,
 
-        experience: document.getElementById("bookExperience").value
-    };
+    experience: document.getElementById("bookExperience").value
+  };
 
-    // Save to Firebase
-    await push(ref(db, "books"), book);
+  // Save to Firebase
+  await push(ref(db, "books"), book);
 
-    alert("Book Added Successfully!");
+  alert("Book Added Successfully!");
 
-    form.reset();
+  form.reset();
 
 });
+import { onValue } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
+const bookContainer = document.getElementById("bookContainer");
 
-// ---------------- DISPLAY FIREBASE BOOKS ----------------
-
-const firebaseBooks = document.getElementById("firebaseBooks");
-
+// Read books from Firebase
 onValue(ref(db, "books"), (snapshot) => {
 
     const data = snapshot.val();
 
-    if(!data) return;
+    // Prevent duplicate cards
+    bookContainer.innerHTML = "";
 
-    firebaseBooks.innerHTML = "";
-
+    // Loop through books
     for(let id in data){
 
         const book = data[id];
@@ -105,7 +82,6 @@ onValue(ref(db, "books"), (snapshot) => {
         card.classList.add("book-card");
 
         card.innerHTML = `
-
             <h2>${book.name}</h2>
 
             <img src="${book.image}" alt="${book.name}">
@@ -124,7 +100,7 @@ onValue(ref(db, "books"), (snapshot) => {
             </div>
         `;
 
-        firebaseBooks.appendChild(card);
+        bookContainer.appendChild(card);
     }
 
 });
