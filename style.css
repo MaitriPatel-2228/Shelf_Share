@@ -229,11 +229,12 @@ header p{
 /* ── Delete Button (Firebase cards only) ── */
 .delete-btn {
     display: block;
-    margin: 8px auto 14px;
+    width: fit-content;
+    margin: 8px auto 14px auto;
     padding: 8px 20px;
-    background: transparent;
-    color: #e05555;
-    border: 1.5px solid #e05555;
+    background: transparent !important;
+    color: #e05555 !important;
+    border: 1.5px solid #e05555 !important;
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
@@ -243,13 +244,13 @@ header p{
 }
 
 .delete-btn:hover {
-    background: #e05555;
-    color: #fff;
-    transform: scale(1.04);
+    background: #e05555 !important;
+    color: #fff !important;
+    transform: scale(1.04) !important;
 }
 
 .delete-btn:active {
-    transform: scale(0.97);
+    transform: scale(0.97) !important;
 }
 
 /* ── Form ── */
