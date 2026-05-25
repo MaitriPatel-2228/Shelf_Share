@@ -15,6 +15,16 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
+// ─── Convert uploaded image file to Base64 string ────────────────────────────
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result); // result is "data:image/...;base64,..."
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
+
 // ─── Animate card out then remove from DOM ───────────────────────────────────
 function removeCard(card) {
     card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
@@ -28,16 +38,39 @@ const form = document.getElementById("bookForm");
 
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
-    const book = {
-        name: document.getElementById("bookName").value,
-        author: document.getElementById("bookAuthor").value,
-        image: document.getElementById("bookImage").value,
-        description: document.getElementById("bookDescription").value,
-        experience: document.getElementById("bookExperience").value
-    };
-    await push(ref(db, "books"), book);
-    alert("Book Added Successfully!");
-    form.reset();
+
+    const imageFile = document.getElementById("bookImage").files[0];
+    if (!imageFile) {
+        alert("Please select a book image.");
+        return;
+    }
+
+    // Show loading state
+    const submitBtn = form.querySelector("button[type='submit']");
+    submitBtn.textContent = "Uploading...";
+    submitBtn.disabled = true;
+
+    try {
+        const imageBase64 = await toBase64(imageFile);
+
+        const book = {
+            name: document.getElementById("bookName").value,
+            author: document.getElementById("bookAuthor").value,
+            image: imageBase64,   // store Base64 string directly
+            description: document.getElementById("bookDescription").value,
+            experience: document.getElementById("bookExperience").value
+        };
+
+        await push(ref(db, "books"), book);
+        alert("Book Added Successfully!");
+        form.reset();
+    } catch (err) {
+        alert("Something went wrong. Please try again.");
+        console.error(err);
+    } finally {
+        submitBtn.textContent = "Add Book";
+        submitBtn.disabled = false;
+    }
 });
 
 // ─── Read & Render Firebase Books ────────────────────────────────────────────
