@@ -107,9 +107,9 @@ onValue(ref(db, "books"), (snapshot) => {
             <div class="info">
                 <h3>AUTHOR</h3>
                 <p>${book.author}</p>
-                <h3>DESCRIPTION</h3>
+                <h3>BOOK DESCRIPTION</h3>
                 <p>${book.description}</p>
-                <h3>EXPERIENCE</h3>
+                <h3>READING EXPERIENCE</h3>
                 <p>${book.experience}</p>
             </div>
         `;
