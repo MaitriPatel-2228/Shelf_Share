@@ -283,15 +283,18 @@ form{
 }
 
 .form-row label{
-    color:white;
-    font-size:1rem;
+    color:#a2d1d7;
+    font-size:0.85rem;
     font-weight:600;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    margin-left:4px;
 }
 
 .form-row input{
     width:100%;
     box-sizing:border-box;
-    padding:12px;
+    padding:15px;
     border:none;
     border-radius:10px;
     outline:none;
@@ -368,4 +371,18 @@ button:hover{
         width:92%;
         padding:20px 16px;
     }
+}
+
+/* Placeholder color for inputs & textareas */
+::placeholder{
+    color: rgba(255,255,255,0.35);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Focus glow on inputs and textareas */
+.form-row input:focus,
+textarea:focus{
+    outline: none;
+    border: 1.5px solid rgba(162,209,215,0.6);
+    background: rgba(0,0,0,0.6);
 }
