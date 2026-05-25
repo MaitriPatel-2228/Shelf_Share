@@ -1,87 +1,54 @@
-   <style>
-        *{
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
 
-
-/* Full Page Background */
 body{
     margin:0;
     padding:0;
     font-family: 'Poppins', sans-serif;
     overflow-x:hidden;
-   
 }
 
-/* Background Image Layer */
 .background-animation{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
-    
-    /* Add your image path here */
     background:
         linear-gradient(
             rgba(10,10,25,0.55),
             rgba(117, 117, 187, 0.65)
         ),
         url("bg.jpg");
-
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-
     z-index:-2;
-
-    /* Smooth zoom animation */
     animation:zoomBg 18s ease-in-out infinite alternate;
 }
 
-/* Optional Blur Glow Overlay */
 .background-animation::after{
     content:"";
     position:absolute;
     inset:0;
-
-    background:
-        radial-gradient(circle at center,
-       
-        transparent 20%);
-
+    background:radial-gradient(circle at center, transparent 20%);
     backdrop-filter: blur(1px);
-
     animation:glowMove 8s infinite alternate;
 }
 
-/* Slow cinematic zoom */
 @keyframes zoomBg{
-    from{
-        transform:scale(1);
-    }
-    to{
-        transform:scale(1.08);
-    }
+    from{ transform:scale(1); }
+    to{ transform:scale(1.08); }
 }
 
-/* Soft glowing movement */
 @keyframes glowMove{
-    from{
-        opacity:0.4;
-        transform:translateY(-10px);
-    }
-    to{
-        opacity:0.8;
-        transform:translateY(10px);
-    }
+    from{ opacity:0.4; transform:translateY(-10px); }
+    to{ opacity:0.8; transform:translateY(10px); }
 }
-
-/* Header */
-
 
 header{
     text-align:center;
@@ -92,7 +59,7 @@ header h1{
     font-size:4rem;
     color:#fdffff;
     text-shadow:0 0 0px #c2dfe2;
-    margin-bottom:2px;   /* reduce gap */
+    margin-bottom:2px;
 }
 
 header p{
@@ -101,7 +68,6 @@ header p{
     font-size:1.2rem;
 }
 
-/* Navbar */
 .navbar {
     margin-top: 20px;
     display: flex;
@@ -110,7 +76,6 @@ header p{
     padding: 0 40px;
 }
 
-/* Floating Dropdown Menu */
 .floating-menu{
     position:fixed;
     top:20px;
@@ -118,7 +83,6 @@ header p{
     z-index:999;
 }
 
-/* Main Button */
 .drop-btn{
     background: rgba(255, 107, 129, 0.35);
     backdrop-filter: blur(6px);
@@ -138,25 +102,20 @@ header p{
     transform:scale(1.05);
 }
 
-/* Dropdown Content */
 .dropdown-content{
     display:none;
     flex-direction:column;
     position:absolute;
     right:0;
     margin-top:10px;
-
     background:rgba(255,255,255,0.1);
     backdrop-filter:blur(10px);
-
     border-radius:15px;
     overflow:hidden;
     min-width:180px;
-
     box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* Links */
 .dropdown-content a{
     color:white;
     text-decoration:none;
@@ -168,12 +127,11 @@ header p{
     background:#ff4757;
 }
 
-/* Show Dropdown on Hover */
 .floating-menu:hover .dropdown-content{
     display:flex;
 }
-/* Book Cards */
 
+/* ── Book Cards ── */
 .book-container{
     display:flex;
     flex-wrap:wrap;
@@ -191,6 +149,7 @@ header p{
     backdrop-filter:blur(10px);
     transition:0.4s;
     box-shadow:0 0 20px rgba(0,0,0,0.5);
+    position: relative;
 }
 
 .book-card:hover{
@@ -238,6 +197,15 @@ header p{
     cursor:pointer;
     background:#a2d1d7;
     color:black;
+    font-size: 0.85rem;
+    font-weight: normal;
+    transition: 0.2s;
+}
+
+.buttons button:hover{
+    background:#ff4757;
+    color: white;
+    transform: none;
 }
 
 .info{
@@ -247,6 +215,9 @@ header p{
 .info h3{
     margin-bottom:8px;
     color:#00e5ff;
+    display: block;       /* override the global h3 flex rule */
+    justify-content: unset;
+    font-size: 0.95rem;
 }
 
 .info p{
@@ -255,31 +226,33 @@ header p{
     color:#ddd;
 }
 
-        /* ── Delete Button ── */
-        .book-card { position: relative; }
-        .delete-btn {
-            display: block;
-            margin: 8px auto 8px ;
-            padding: 8px 20px;
-            background: transparent;
-            color: #e05555;
-            border: 1.5px solid #e05555;
-            border-radius: 8px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
-        }
-        .delete-btn:hover {
-            background: #e05555;
-            color: #fff;
-            transform: scale(1.04);
-        }
-        .delete-btn:active { transform: scale(0.97); }
-   
+/* ── Delete Button (Firebase cards only) ── */
+.delete-btn {
+    display: block;
+    margin: 8px auto 14px;
+    padding: 8px 20px;
+    background: transparent;
+    color: #e05555;
+    border: 1.5px solid #e05555;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+}
 
-/* Form */
+.delete-btn:hover {
+    background: #e05555;
+    color: #fff;
+    transform: scale(1.04);
+}
 
+.delete-btn:active {
+    transform: scale(0.97);
+}
+
+/* ── Form ── */
 .form-section {
     width: 90%;
     max-width: 700px;
@@ -297,14 +270,12 @@ header p{
     color: #ffcc00;
 }
 
-/* FORM LAYOUT */
 form {
     display: flex;
     flex-direction: column;
     gap: 18px;
 }
 
-/* LABEL + INPUT ROW */
 h3 {
     display: flex;
     align-items: center;
@@ -315,7 +286,6 @@ h3 {
     margin: 0;
 }
 
-/* INPUT FULL WIDTH INSIDE ROW */
 h3 input {
     flex: 1;
     padding: 12px;
@@ -327,11 +297,9 @@ h3 input {
     font-size: 1rem;
 }
 
-/* TEXTAREA FULL WIDTH */
-
 textarea {
     width: 100%;
-    box-sizing: border-box;   
+    box-sizing: border-box;
     padding: 15px;
     border: none;
     border-radius: 10px;
@@ -342,9 +310,7 @@ textarea {
     font-size: 1rem;
 }
 
-
-
-/* BUTTON */
+/* Global button — form submit & HP buttons inherit this */
 button {
     padding: 15px;
     border: none;
@@ -362,17 +328,9 @@ button:hover {
     color: white;
     transform: translateY(-2px);
 }
+
 /* Responsive */
-
 @media(max-width:768px){
-
-    header h1{
-        font-size:2.5rem;
-    }
-
-    .anime-card{
-        width:90%;
-    }
-
+    header h1{ font-size:2.5rem; }
+    .book-card{ width:90%; }
 }
-    </style>
