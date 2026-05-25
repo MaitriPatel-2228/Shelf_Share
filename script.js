@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
-// ─── Firebase Setup ─────────────────────────────────────────────────────────
+// ─── Firebase Setup ──────────────────────────────────────────────────────────
 const firebaseConfig = {
     apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
     authDomain: "share-shelf-9409e.firebaseapp.com",
@@ -15,7 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// ─── Helper: animate card out, then remove from DOM ─────────────────────────
+// ─── Animate card out then remove from DOM ───────────────────────────────────
 function removeCard(card) {
     card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
     card.style.opacity = "0";
@@ -28,7 +28,6 @@ const form = document.getElementById("bookForm");
 
 form.addEventListener("submit", async function(e) {
     e.preventDefault();
-
     const book = {
         name: document.getElementById("bookName").value,
         author: document.getElementById("bookAuthor").value,
@@ -36,13 +35,12 @@ form.addEventListener("submit", async function(e) {
         description: document.getElementById("bookDescription").value,
         experience: document.getElementById("bookExperience").value
     };
-
     await push(ref(db, "books"), book);
     alert("Book Added Successfully!");
     form.reset();
 });
 
-// ─── Read & Render Books from Firebase ──────────────────────────────────────
+// ─── Read & Render Firebase Books ────────────────────────────────────────────
 const bookContainer = document.getElementById("bookContainer");
 const renderedIds = new Set();
 
@@ -71,19 +69,24 @@ onValue(ref(db, "books"), (snapshot) => {
             </div>
         `;
 
-        // Delete button — removes from Firebase AND from the UI
+        // Delete button — only on Firebase cards
+        const deleteWrapper = document.createElement("div");
+        deleteWrapper.style.cssText = "display:flex; justify-content:center; width:100%; padding:4px 0 12px;";
+
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "delete-btn";
         deleteBtn.textContent = "🗑 Delete";
+        deleteBtn.style.cssText = "display:inline-block; width:auto; padding:8px 20px; background:transparent; color:#e05555; border:1.5px solid #e05555; border-radius:8px; font-size:13px; font-weight:normal; cursor:pointer;";
         deleteBtn.addEventListener("click", async () => {
             if (confirm(`Delete "${book.name}"?`)) {
-                await remove(ref(db, `books/${id}`));  // remove from Firebase
-                renderedIds.delete(id);                 // allow re-render if re-added
-                removeCard(card);                       // animate out of UI
+                await remove(ref(db, `books/${id}`));
+                renderedIds.delete(id);
+                removeCard(card);
             }
         });
 
-        card.appendChild(deleteBtn);
+        deleteWrapper.appendChild(deleteBtn);
+        card.appendChild(deleteWrapper);
         bookContainer.appendChild(card);
         renderedIds.add(id);
     }
