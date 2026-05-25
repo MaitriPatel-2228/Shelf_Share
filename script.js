@@ -105,11 +105,11 @@ onValue(ref(db, "books"), (snapshot) => {
             <h2>${book.name}</h2>
             <img src="${book.image}" alt="${book.name}">
             <div class="info">
-                <h3>Author</h3>
+                <h3>AUTHOR</h3>
                 <p>${book.author}</p>
-                <h3>Description</h3>
+                <h3>DESCRIPTION</h3>
                 <p>${book.description}</p>
-                <h3>Experience</h3>
+                <h3>EXPERIENCE</h3>
                 <p>${book.experience}</p>
             </div>
         `;
