@@ -6,7 +6,6 @@
     <title>Share Shelf By Maitri Patel</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
 </head>
 <body id="top">
 
@@ -30,10 +29,10 @@
 
     <nav class="navbar"></nav>
 
-    <!-- Book Cards Section -->
+    <!-- Book Cards -->
     <section class="book-container" id="bookContainer">
 
-        <!-- Atomic Habits (static card) -->
+        <!-- Atomic Habits (static — no delete) -->
         <div class="book-card">
             <h2>Atomic Habits</h2>
             <img src="atomic_habits.jpg" alt="Atomic Habits">
@@ -41,18 +40,13 @@
                 <h3>Author</h3>
                 <p>James Clear</p>
                 <h3>Description</h3>
-                <p>
-                    A powerful self-improvement book that explains how
-                    tiny daily habits can create massive long-term success.
-                </p>
+                <p>A powerful self-improvement book that explains how tiny daily habits can create massive long-term success.</p>
                 <h3>Experience</h3>
-                <p>
-                    Easy to read, highly motivating, and full of real-life examples.
-                </p>
+                <p>Easy to read, highly motivating, and full of real-life examples.</p>
             </div>
         </div>
 
-        <!-- Harry Potter (static card with image switcher) -->
+        <!-- Harry Potter (static — no delete) -->
         <div class="book-card">
             <h2>Harry Potter</h2>
             <div class="image-slider">
@@ -71,19 +65,13 @@
                 <h3>Author</h3>
                 <p>J. K. Rowling</p>
                 <h3>Description</h3>
-                <p>
-                    Harry Potter, a young boy, discovers he is a wizard and joins Hogwarts, where he
-                    learns magic and faces the dark wizard Voldemort as he uncovers secrets about his past.
-                </p>
+                <p>Harry Potter, a young boy, discovers he is a wizard and joins Hogwarts, where he learns magic and faces the dark wizard Voldemort as he uncovers secrets about his past.</p>
                 <h3>Experience</h3>
-                <p>
-                    It consists of 7 parts. The story grows with every book, and the world of magic,
-                    friendship, and courage feels unforgettable from beginning to end.
-                </p>
+                <p>It consists of 7 parts. The story grows with every book, and the world of magic, friendship, and courage feels unforgettable from beginning to end.</p>
             </div>
         </div>
 
-        <!-- Firebase-suggested books will be appended here dynamically -->
+        <!-- Firebase-suggested books appended here by script.js -->
 
     </section>
 
@@ -91,14 +79,14 @@
     <section class="form-section" id="suggestion">
         <h2>Add New Book Suggestion</h2>
         <form id="bookForm">
-            <h3>Book Name : &nbsp;
+            <h3>Book Name :
                 <input type="text" id="bookName" placeholder="Enter Book Name" required>
             </h3>
-            <h3>Author :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <h3>Author :
                 <input type="text" id="bookAuthor" placeholder="Author name" required>
             </h3>
             <h3>Book Image :
-                <input type="text" id="bookImage" placeholder="Image URL" required>
+                <input type="file" id="bookImage" accept="image/*" required>
             </h3>
             <textarea id="bookDescription" placeholder="Add Book Description" required></textarea>
             <textarea id="bookExperience" placeholder="Add Your Experience" required></textarea>
@@ -106,20 +94,11 @@
         </form>
     </section>
 
-    <!-- changeBook must be in a plain script (NOT type="module") so onclick can find it globally -->
+    <!-- Plain script so onclick="changeBook()" works globally -->
     <script>
         function changeBook(num) {
-            const images = [
-                "hp1.jpg",
-                "hp2.jpg",
-                "hp3.jpg",
-                "hp4.jpg",
-                "hp5.jpg",
-                "hp6.jpg",
-                "hp7.jpg"
-            ];
-            const img = document.getElementById("harryImage");
-            img.src = images[num - 1];
+            const images = ["hp1.jpg","hp2.jpg","hp3.jpg","hp4.jpg","hp5.jpg","hp6.jpg","hp7.jpg"];
+            document.getElementById("harryImage").src = images[num - 1];
         }
     </script>
 
