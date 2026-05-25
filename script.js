@@ -23,19 +23,6 @@ function removeCard(card) {
     setTimeout(() => card.remove(), 400);
 }
 
-// ─── Add delete button to the two static cards ──────────────────────────────
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".book-card").forEach(card => {
-        const btn = document.createElement("button");
-        btn.className = "delete-btn";
-        btn.textContent = "🗑 Delete";
-        btn.addEventListener("click", () => {
-            if (confirm("Remove this book card?")) removeCard(card);
-        });
-        card.appendChild(btn);
-    });
-});
-
 // ─── Form Submission ─────────────────────────────────────────────────────────
 const form = document.getElementById("bookForm");
 
