@@ -16,8 +16,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 // ─── Cloudinary Config — FILL THESE IN ───────────────────────────────────────
-const CLOUDINARY_CLOUD_NAME = "dyqsjq9kl";       // e.g. "dxyz123abc"
-const CLOUDINARY_UPLOAD_PRESET = "bookshelf_preset"; // e.g. "bookshelf_preset"
+const CLOUDINARY_CLOUD_NAME = "your_cloud_name";       // e.g. "dxyz123abc"
+const CLOUDINARY_UPLOAD_PRESET = "your_upload_preset"; // e.g. "bookshelf_preset"
 
 // ─── Upload image to Cloudinary, returns public image URL ────────────────────
 async function uploadToCloudinary(file) {
@@ -105,11 +105,11 @@ onValue(ref(db, "books"), (snapshot) => {
             <h2>${book.name}</h2>
             <img src="${book.image}" alt="${book.name}">
             <div class="info">
-                <h3>AUTHOR</h3>
+                <h3>Author</h3>
                 <p>${book.author}</p>
-                <h3>BOOK DESCRIPTION</h3>
+                <h3>Book Description</h3>
                 <p>${book.description}</p>
-                <h3>READING EXPERIENCE</h3>
+                <h3>Reading Experience</h3>
                 <p>${book.experience}</p>
             </div>
         `;
