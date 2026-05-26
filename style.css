@@ -73,7 +73,7 @@ header p{
     padding:0 40px;
 }
 
-/* Floating Menu */
+// Floating Menu 
 .floating-menu{
     position:fixed;
     top:20px;
@@ -132,7 +132,7 @@ header p{
     display:flex;
 }
 
-/* Book Cards */
+// Book Cards 
 .book-container{
     display:flex;
     flex-wrap:wrap;
@@ -229,7 +229,7 @@ header p{
     color:#ddd;
 }
 
-/* Delete Button */
+// Delete Button 
 .delete-btn{
     display:inline-block;
     width:auto;
@@ -256,7 +256,7 @@ header p{
     transform:scale(0.97);
 }
 
-/* Form Section */
+// Form Section 
 .form-section{
     width:90%;
     max-width:700px;
@@ -280,7 +280,7 @@ form{
     gap:18px;
 }
 
-/* Form row — label + input stacked vertically always */
+// Form row — label + input stacked vertically always 
 .form-row{
     display:flex;
     flex-direction:column;
@@ -367,7 +367,7 @@ button:hover{
     transform:translateY(-2px);
 }
 
-/* Mobile */
+// Mobile 
 @media(max-width:768px){
     header h1{ font-size:2.2rem; }
     header p{ font-size:1rem; }
@@ -378,13 +378,13 @@ button:hover{
     }
 }
 
-/* Placeholder color for inputs & textareas */
+// Placeholder color for inputs & textareas 
 ::placeholder{
     color: rgba(255,255,255,0.35);
     font-family: 'Poppins', sans-serif;
 }
 
-/* Focus glow on inputs and textareas */
+// Focus glow on inputs and textareas 
 .form-row input:focus,
 textarea:focus{
     outline: none;
