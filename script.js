@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-database.js";
 
-// ─── Firebase Setup ──────────────────────────────────────────────────────────
+// Firebase Setup 
 const firebaseConfig = {
     apiKey: "AIzaSyCzoXTsgRb4yETudtXTiHPs_6jsiI2uqzA",
     authDomain: "share-shelf-9409e.firebaseapp.com",
@@ -15,11 +15,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-// ─── Cloudinary Config — FILL THESE IN ───────────────────────────────────────
+// Cloudinary Config
 const CLOUDINARY_CLOUD_NAME = "dyqsjq9kl";       
 const CLOUDINARY_UPLOAD_PRESET = "bookshelf_preset"; // "bookshelf_preset"
 
-// ─── Upload image to Cloudinary, returns public image URL ────────────────────
+// Upload image to Cloudinary returns public image URL
 async function uploadToCloudinary(file) {
     const formData = new FormData();
     formData.append("file", file);
@@ -35,7 +35,7 @@ async function uploadToCloudinary(file) {
     return data.secure_url; // public image URL
 }
 
-// ─── Animate card out then remove from DOM ───────────────────────────────────
+// Animate card out then remove from DOM 
 function removeCard(card) {
     card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
     card.style.opacity = "0";
@@ -43,7 +43,7 @@ function removeCard(card) {
     setTimeout(() => card.remove(), 400);
 }
 
-// ─── Form Submission ─────────────────────────────────────────────────────────
+// Form Submission 
 const form = document.getElementById("bookForm");
 
 form.addEventListener("submit", async function(e) {
@@ -85,7 +85,7 @@ form.addEventListener("submit", async function(e) {
     }
 });
 
-// ─── Read & Render Firebase Books ────────────────────────────────────────────
+// Read & Render Firebase Books
 const bookContainer = document.getElementById("bookContainer");
 const renderedIds = new Set();
 
