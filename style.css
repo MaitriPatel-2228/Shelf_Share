@@ -103,8 +103,9 @@ header p{
 .dropdown-content{
     position:absolute;
     right:0;
-    margin-top:10px;
-    
+    top:100%;
+    padding-top:10px;
+
     display:flex;
     flex-direction:column;
 
@@ -118,7 +119,6 @@ header p{
     opacity:0;
     visibility:hidden;
     transform:translateY(-10px);
-
     transition:all 0.3s ease;
 }
 
@@ -127,7 +127,6 @@ header p{
     visibility:visible;
     transform:translateY(0);
 }
-
 .dropdown-content a{
     color:white;
     text-decoration:none;
@@ -138,7 +137,9 @@ header p{
 .dropdown-content a:hover{
     background:#ff4757;
 }
-
+.floating-menu{
+    position:relative;
+}
 .dropdown-content{
     -webkit-overflow-scrolling: touch;
 }
