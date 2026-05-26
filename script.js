@@ -16,8 +16,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 // ─── Cloudinary Config — FILL THESE IN ───────────────────────────────────────
-const CLOUDINARY_CLOUD_NAME = "your_cloud_name";       // e.g. "dxyz123abc"
-const CLOUDINARY_UPLOAD_PRESET = "your_upload_preset"; // e.g. "bookshelf_preset"
+const CLOUDINARY_CLOUD_NAME = "dyqsjq9kl";       
+const CLOUDINARY_UPLOAD_PRESET = "bookshelf_preset"; // "bookshelf_preset"
 
 // ─── Upload image to Cloudinary, returns public image URL ────────────────────
 async function uploadToCloudinary(file) {
