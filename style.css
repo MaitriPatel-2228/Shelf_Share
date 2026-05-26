@@ -79,8 +79,9 @@ header p{
     top:20px;
     right:20px;
     z-index:999;
+    padding-bottom:8px;  /* fills gap between button and dropdown */
 }
-
+ 
 .drop-btn{
     background:rgba(255,107,129,0.35);
     backdrop-filter:blur(6px);
@@ -94,56 +95,43 @@ header p{
     transition:0.3s;
     box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
-
+ 
 .drop-btn:hover{
     background:#ff4757;
     transform:scale(1.05);
 }
-
+ 
 .dropdown-content{
+    display:none;
+    flex-direction:column;
     position:absolute;
     right:0;
     top:100%;
-    padding-top:10px;
-
-    display:flex;
-    flex-direction:column;
-
+    margin-top:0;
+    padding-top:8px;
     background:rgba(255,255,255,0.1);
     backdrop-filter:blur(10px);
     border-radius:15px;
     overflow:hidden;
     min-width:180px;
     box-shadow:0 4px 15px rgba(0,0,0,0.3);
-
-    opacity:0;
-    visibility:hidden;
-    transform:translateY(-10px);
-    transition:all 0.3s ease;
 }
-
-.floating-menu:hover .dropdown-content{
-    opacity:1;
-    visibility:visible;
-    transform:translateY(0);
-}
+ 
 .dropdown-content a{
     color:white;
     text-decoration:none;
     padding:12px 15px;
     transition:0.3s;
 }
-
+ 
 .dropdown-content a:hover{
     background:#ff4757;
 }
-.floating-menu{
-    position:relative;
+ 
+.floating-menu:hover .dropdown-content{
+    display:flex;
 }
-.dropdown-content{
-    -webkit-overflow-scrolling: touch;
-}
-
+ 
 /* Book Cards */
 .book-container{
     display:flex;
