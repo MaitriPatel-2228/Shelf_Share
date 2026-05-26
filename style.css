@@ -81,7 +81,7 @@ header p{
     z-index:999;
     padding-bottom:8px;  /* fills gap between button and dropdown */
 }
- 
+
 .drop-btn{
     background:rgba(255,107,129,0.35);
     backdrop-filter:blur(6px);
@@ -95,12 +95,12 @@ header p{
     transition:0.3s;
     box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
- 
+
 .drop-btn:hover{
     background:#ff4757;
     transform:scale(1.05);
 }
- 
+
 .dropdown-content{
     display:none;
     flex-direction:column;
@@ -116,22 +116,22 @@ header p{
     min-width:180px;
     box-shadow:0 4px 15px rgba(0,0,0,0.3);
 }
- 
+
 .dropdown-content a{
     color:white;
     text-decoration:none;
     padding:12px 15px;
     transition:0.3s;
 }
- 
+
 .dropdown-content a:hover{
     background:#ff4757;
 }
- 
+
 .floating-menu:hover .dropdown-content{
     display:flex;
 }
- 
+
 /* Book Cards */
 .book-container{
     display:flex;
