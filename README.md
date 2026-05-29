@@ -2,12 +2,12 @@
 A simple and interactive book recommendation platform where readers can discover their next favorite read, submit new book suggestions, and manage entries easily.
 
 ## 🚀 Features
-📖 Browse book recommendations.
-➕ Add new book suggestions using a form.
-🆕 Automatically generates a new book card after submission.
-🗑️ Delete incorrect or unwanted book entries easily.
-🎨 Responsive and clean user interface.
-💾 Database integration for storing book data.
+📖 Browse book recommendations.  
+➕ Add new book suggestions using a form.  
+🆕 Automatically generates a new book card after submission.  
+🗑️ Delete incorrect or unwanted book entries easily.  
+🎨 Responsive and clean user interface.  
+💾 Database integration for storing book data.  
 
 ## 🛠️ Built With
 1) HTML – Structure of the website
