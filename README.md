@@ -16,13 +16,17 @@ A simple and interactive book recommendation platform where readers can discover
 4) Database – Data storage and management
 
 ## ⚙️ How It Works
-> Users visit the website to explore book recommendations.
-> A form allows users to submit details about a new book.
-> After submission:
-The data is stored in the database.
-> A new book card is generated dynamically.
-> If a user notices any mistake, they can delete the book card easily.
+> Users visit the website to explore book recommendations.  
+> A form allows users to submit details about a new book.  
+> After submission:  
+The data is stored in the database.  
+> A new book card is generated dynamically.  
+> If a user notices any mistake, they can delete the book card easily.  
 
 ## 🌟 Future Improvements
-> User authentication
+> User authentication  
 > Dark mode support
+
+## 🤝 Contributing
+Contributions are welcome!  
+Feel free to fork the repository and submit a pull request.  
