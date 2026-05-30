@@ -24,8 +24,7 @@ The data is stored in the database.
 > If a user notices any mistake, they can delete the book card easily.  
 
 ## 🌟 Future Improvements
-> User authentication  
-> Dark mode support
+> User authentication 
 
 ## 🤝 Contributing
 Contributions are welcome!  
