@@ -150,26 +150,32 @@ logoutBtn.addEventListener("click", async () => {
 
 // AUTH STATE
 
-onAuthStateChanged(auth, (user) => {
+const loginModal = document.getElementById("loginModal");
+const appContent = document.getElementById("appContent");
 
-    const loginModal = document.getElementById("loginModal");
+onAuthStateChanged(auth, (user) => {
 
     if (user) {
 
-        userStatus.textContent = `Welcome ${user.email}`;
-
+        // hide login
         loginModal.style.display = "none";
-        logoutBtn.style.display = "inline-block";
+
+        // show website
+        appContent.style.display = "block";
+
+        userStatus.textContent = `Welcome ${user.email}`;
 
     } else {
 
-        userStatus.textContent = "Not Logged In";
-
+        // show login
         loginModal.style.display = "flex";
-        logoutBtn.style.display = "none";
+
+        // hide website
+        appContent.style.display = "none";
+
+        userStatus.textContent = "Not Logged In";
     }
 });
-
 // ADD BOOK
 form.addEventListener("submit", async (e) => {
 
