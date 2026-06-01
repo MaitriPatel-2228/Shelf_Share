@@ -150,35 +150,43 @@ logoutBtn.addEventListener("click", async () => {
 
 // AUTH STATE
 
-
 onAuthStateChanged(auth, (user) => {
+
+    const loginModal = document.getElementById("loginModal");
 
     if (user) {
 
         userStatus.textContent = `Welcome ${user.email}`;
 
+        // hide login popup
+        if (loginModal) {
+            loginModal.style.display = "none";
+        }
+
+        // show logout / hide login buttons
         logoutBtn.style.display = "inline-block";
         loginBtn.style.display = "none";
         signupBtn.style.display = "none";
 
-        loginModal.style.display = "none";
-
+        // show form
         bookFormSection.style.display = "block";
 
     } else {
 
         userStatus.textContent = "Not Logged In";
 
+        // show login popup again
+        if (loginModal) {
+            loginModal.style.display = "flex";
+        }
+
         logoutBtn.style.display = "none";
         loginBtn.style.display = "inline-block";
         signupBtn.style.display = "inline-block";
 
-        loginModal.style.display = "flex";
-
         bookFormSection.style.display = "none";
     }
 });
-
 
 // ADD BOOK
 form.addEventListener("submit", async (e) => {
