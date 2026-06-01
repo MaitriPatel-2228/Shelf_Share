@@ -8,37 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body id="top">
-    <div id="loginModal" class="login-modal">
+  <body>
 
-    <div class="login-box">
+<!-- LOGIN (always visible first) -->
+<div id="loginModal" class="login-modal">
+    <input id="email" type="email">
+    <input id="password" type="password">
 
-        <h2>🔐 Login to Share Shelf</h2>
+    <button id="signupBtn">Sign Up</button>
+    <button id="loginBtn">Login</button>
+    <button id="logoutBtn" style="display:none;">Logout</button>
 
-        <input
-            type="email"
-            id="email"
-            placeholder="Email Address"
-        >
-
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-        >
-
-        <div class="auth-buttons">
-            <button id="signupBtn">Sign Up</button>
-            <button id="loginBtn">Login</button>
-            <button id="logoutBtn" style="display:none;">
-                Logout
-            </button>
-        </div>
-
-        <p id="userStatus">Not Logged In</p>
-
-    </div>
-
+    <p id="userStatus"></p>
 </div>
+
+
+<div id="appContent" style="display:none;">
+
+
     <!-- Floating Dropdown Menu -->
     <div class="floating-menu">
         <button class="drop-btn">☰</button>
@@ -138,5 +125,6 @@
     </script>
 
     <script src="script.js" type="module"></script>
+</div>
 </body>
 </html>
