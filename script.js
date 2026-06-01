@@ -31,6 +31,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const auth = getAuth(app);
+const loginModal = document.getElementById("loginModal");
 
 
 // CLOUDINARY CONFIG
@@ -148,17 +149,19 @@ logoutBtn.addEventListener("click", async () => {
 
 
 // AUTH STATE
+
+
 onAuthStateChanged(auth, (user) => {
 
     if (user) {
 
-        userStatus.textContent =
-            `Logged in as ${user.email}`;
+        userStatus.textContent = `Welcome ${user.email}`;
 
         logoutBtn.style.display = "inline-block";
-
         loginBtn.style.display = "none";
         signupBtn.style.display = "none";
+
+        loginModal.style.display = "none";
 
         bookFormSection.style.display = "block";
 
@@ -167,9 +170,10 @@ onAuthStateChanged(auth, (user) => {
         userStatus.textContent = "Not Logged In";
 
         logoutBtn.style.display = "none";
-
         loginBtn.style.display = "inline-block";
         signupBtn.style.display = "inline-block";
+
+        loginModal.style.display = "flex";
 
         bookFormSection.style.display = "none";
     }
