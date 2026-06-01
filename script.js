@@ -153,27 +153,63 @@ logoutBtn.addEventListener("click", async () => {
 const loginModal = document.getElementById("loginModal");
 const appContent = document.getElementById("appContent");
 
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
+const signupBtn = document.getElementById("signupBtn");
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+const userStatus = document.getElementById("userStatus");
+
+// TEST: check if elements exist
+console.log(loginModal, appContent);
+
+// SIGNUP
+signupBtn.onclick = async () => {
+    try {
+        await createUserWithEmailAndPassword(auth, email.value, password.value);
+        alert("Account created");
+    } catch (e) {
+        alert(e.message);
+    }
+};
+
+// LOGIN
+loginBtn.onclick = async () => {
+    try {
+        await signInWithEmailAndPassword(auth, email.value, password.value);
+        alert("Logged in");
+    } catch (e) {
+        alert(e.message);
+    }
+};
+
+// LOGOUT
+logoutBtn.onclick = async () => {
+    await signOut(auth);
+};
+
+// AUTH STATE (MAIN FIX)
 onAuthStateChanged(auth, (user) => {
 
     if (user) {
 
-        // hide login
         loginModal.style.display = "none";
-
-        // show website
         appContent.style.display = "block";
 
-        userStatus.textContent = `Welcome ${user.email}`;
+        userStatus.textContent = "Welcome " + user.email;
+
+        logoutBtn.style.display = "inline-block";
 
     } else {
 
-        // show login
         loginModal.style.display = "flex";
-
-        // hide website
         appContent.style.display = "none";
 
-        userStatus.textContent = "Not Logged In";
+        userStatus.textContent = "Not logged in";
+
+        logoutBtn.style.display = "none";
     }
 });
 // ADD BOOK
