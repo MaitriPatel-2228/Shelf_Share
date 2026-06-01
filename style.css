@@ -5,6 +5,116 @@
     font-family:'Poppins',sans-serif;
 }
 
+/* =========================
+   LOGIN SECTION
+========================= */
+
+.auth-section{
+    width:90%;
+    max-width:500px;
+    margin:30px auto;
+    padding:30px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+    text-align:center;
+}
+
+.auth-section h2{
+    color:#ffcc00;
+    margin-bottom:20px;
+    font-size:1.8rem;
+}
+
+.auth-section input{
+    width:100%;
+    margin-bottom:15px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    font-size:1rem;
+    font-family:'Poppins',sans-serif;
+    transition:0.3s;
+}
+
+.auth-section input::placeholder{
+    color:rgba(255,255,255,0.4);
+}
+
+.auth-section input:focus{
+    border:1.5px solid rgba(162,209,215,0.7);
+    background:rgba(0,0,0,0.65);
+    box-shadow:0 0 10px rgba(162,209,215,0.3);
+}
+
+.auth-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:10px;
+}
+
+.auth-buttons button{
+    min-width:120px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#a2d1d7;
+    color:black;
+    font-size:0.95rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.auth-buttons button:hover{
+    background:#ff4757;
+    color:white;
+    transform:translateY(-2px);
+}
+
+#logoutBtn{
+    background:#ff4757;
+    color:white;
+}
+
+#logoutBtn:hover{
+    background:#ff6b81;
+}
+
+#userStatus{
+    margin-top:18px;
+    color:#00e5ff;
+    font-size:0.95rem;
+    word-break:break-word;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .auth-section{
+        width:92%;
+        padding:22px 18px;
+    }
+
+    .auth-section h2{
+        font-size:1.5rem;
+    }
+
+    .auth-buttons{
+        flex-direction:column;
+    }
+
+    .auth-buttons button{
+        width:100%;
+    }
+}
 body{
     margin:0;
     padding:0;
