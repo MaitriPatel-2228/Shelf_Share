@@ -148,13 +148,12 @@ logoutBtn.addEventListener("click", async () => {
 });
 
 
-// AUTH STATE
-
+// AUTH ELEMENTS (ONLY ONCE)
 const loginModal = document.getElementById("loginModal");
 const appContent = document.getElementById("appContent");
 
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
 
 const signupBtn = document.getElementById("signupBtn");
 const loginBtn = document.getElementById("loginBtn");
@@ -162,35 +161,44 @@ const logoutBtn = document.getElementById("logoutBtn");
 
 const userStatus = document.getElementById("userStatus");
 
-// TEST: check if elements exist
-console.log(loginModal, appContent);
 
 // SIGNUP
-signupBtn.onclick = async () => {
+signupBtn.addEventListener("click", async () => {
     try {
-        await createUserWithEmailAndPassword(auth, email.value, password.value);
-        alert("Account created");
+        await createUserWithEmailAndPassword(
+            auth,
+            emailInput.value,
+            passwordInput.value
+        );
+        alert("Account created!");
     } catch (e) {
         alert(e.message);
     }
-};
+});
+
 
 // LOGIN
-loginBtn.onclick = async () => {
+loginBtn.addEventListener("click", async () => {
     try {
-        await signInWithEmailAndPassword(auth, email.value, password.value);
-        alert("Logged in");
+        await signInWithEmailAndPassword(
+            auth,
+            emailInput.value,
+            passwordInput.value
+        );
+        alert("Login successful!");
     } catch (e) {
         alert(e.message);
     }
-};
+});
+
 
 // LOGOUT
-logoutBtn.onclick = async () => {
+logoutBtn.addEventListener("click", async () => {
     await signOut(auth);
-};
+});
 
-// AUTH STATE (MAIN FIX)
+
+// AUTH STATE (FINAL FIX)
 onAuthStateChanged(auth, (user) => {
 
     if (user) {
@@ -212,6 +220,7 @@ onAuthStateChanged(auth, (user) => {
         logoutBtn.style.display = "none";
     }
 });
+
 // ADD BOOK
 form.addEventListener("submit", async (e) => {
 
