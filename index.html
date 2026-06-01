@@ -8,7 +8,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body id="top">
+    
+<!-- Login Section -->
+<section id="authSection" class="auth-section">
 
+    <h2>🔐 Share Shelf Login</h2>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Enter Email"
+        required
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+        required
+    >
+
+    <div class="auth-buttons">
+
+        <button type="button" id="signupBtn">
+            Sign Up
+        </button>
+
+        <button type="button" id="loginBtn">
+            Login
+        </button>
+
+        <button
+            type="button"
+            id="logoutBtn"
+            style="display:none;"
+        >
+            Logout
+        </button>
+
+    </div>
+
+    <p id="userStatus">Not Logged In</p>
+
+</section>
     <!-- Floating Dropdown Menu -->
     <div class="floating-menu">
         <button class="drop-btn">☰</button>
