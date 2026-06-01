@@ -4,61 +4,48 @@
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
 }
-/* LOGIN POPUP */
 
 .login-modal{
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(6px);
     display:flex;
     justify-content:center;
     align-items:center;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(8px);
     z-index:9999;
 }
 
-.login-box{
-    width:90%;
-    max-width:420px;
-    padding:35px;
-    background:rgba(20,20,40,0.95);
-    border-radius:20px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,0,0,0.5);
-}
-
-.login-box h2{
-    color:#ffcc00;
-    margin-bottom:25px;
-}
-
-.login-box input{
-    width:100%;
-    padding:14px;
-    margin-bottom:15px;
+.login-modal input{
+    display:block;
+    width:280px;
+    margin:10px auto;
+    padding:12px;
     border:none;
     border-radius:10px;
-    background:rgba(255,255,255,0.08);
+    outline:none;
+}
+
+.login-modal button{
+    margin:5px;
+    padding:10px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#a2d1d7;
+}
+
+.login-modal button:hover{
+    background:#ff4757;
     color:white;
-    font-size:1rem;
 }
 
-.login-box input::placeholder{
-    color:rgba(255,255,255,0.5);
+.login-modal p{
+    color:white;
+    text-align:center;
+    margin-top:10px;
 }
 
-.auth-buttons{
-    display:flex;
-    gap:10px;
-}
-
-.auth-buttons button{
-    flex:1;
-}
-
-#userStatus{
-    margin-top:15px;
-    color:#a2d1d7;
 }
 body{
     margin:0;
