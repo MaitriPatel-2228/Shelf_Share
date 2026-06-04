@@ -247,12 +247,16 @@ header p{
     transition:background 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.delete-btn:hover{
+/*.:hover{
     background:#e05555;
     color:#fff;
     transform:scale(1.04);
 }
-
+*/
+.delete-btn:hover{
+    background:#ff4757;
+    color:white;
+    transform:none;
 .delete-btn:active{
     transform:scale(0.97);
 }
