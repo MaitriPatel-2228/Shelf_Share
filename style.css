@@ -257,6 +257,7 @@ header p{
     background:#ff4757;
     color:white;
     transform:none;
+}
 .delete-btn:active{
     transform:scale(0.97);
 }
