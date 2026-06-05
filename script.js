@@ -121,7 +121,6 @@ onValue(ref(db, "books"), (snapshot) => {
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "delete-btn";
         deleteBtn.textContent = "🗑 Delete";
-        deleteBtn.style.cssText = "display:inline-block; width:auto; padding:8px 20px; background:transparent; color:#e05555; border:1.5px solid #e05555; border-radius:8px; font-size:13px; font-weight:normal; cursor:pointer;";
         deleteBtn.addEventListener("click", async () => {
             if (confirm(`Delete "${book.name}"?`)) {
                 await remove(ref(db, `books/${id}`));
