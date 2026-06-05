@@ -231,37 +231,31 @@ header p{
 }
 
 /* Delete Button */
-.delete-btn{
-    display:inline-block;
-    width:auto;
-    margin:8px auto 14px;
-    padding:8px 20px;
-    background:#a2d1d7;
-    color:black;
-    border:1.5px solid #e05555;
-    border-radius:8px;
-    font-family:'Poppins',sans-serif;
-    font-size:13px;
-    font-weight:normal;
-    cursor:pointer;
-    transition:background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+.delete-btn {
+    display: inline-block;
+    width: auto;
+    margin: 8px auto 14px;
+    padding: 15px 20px;
+    background: #a2d1d7;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/*.:hover{
-    background:#e05555;
-    color:#fff;
-    transform:scale(1.04);
-}
-*/
-.delete-btn:hover{
-    background:#ff4757;
-    color:white;
-    transform:none;
-}
-.delete-btn:active{
-    transform:scale(0.97);
+.delete-btn:hover {
+    background: #ff4757;
+    color: white;
+    transform: translateY(-2px);
 }
 
+.delete-btn:active {
+    transform: scale(0.97);
+}
 /* Form Section */
 .form-section{
     width:90%;
