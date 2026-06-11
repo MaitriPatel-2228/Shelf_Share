@@ -20,7 +20,7 @@ body{
     width:100%;
     height:100%;
     background:
-        linear-gradient(rgba(10,10,25,0.55), rgba(117,117,187,0.65)),
+        linear-gradient(rgba(10,10,25,1), rgba(117,117,187,1)),
         url("bg.jpg");
     background-size:cover;
     background-position:center;
