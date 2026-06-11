@@ -33,7 +33,7 @@ body{
     content:"";
     position:absolute;
     inset:0;
-    background:radial-gradient(circle at center, transparent 20%);
+    background:radial-gradient(circle at center);
     backdrop-filter:blur(1px);
     animation:glowMove 8s infinite alternate;
 }
